@@ -19,6 +19,7 @@ use Psr\Log\LoggerInterface;
  *
  * For security be sure to declare any new methods as protected or private.
  */
+
 class BaseController extends Controller
 {
     /**
@@ -35,7 +36,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = [];
+    protected $helpers = ['text', 'array', 'pdf'];
 
     /**
      * Constructor.
@@ -45,9 +46,10 @@ class BaseController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
-        $this->clearingHouseVendorModel      = new \App\Models\ClearingHouseVendorModel();
-        $this->attachmentClearingVendorModel = new \App\Models\AttachmentClearingVendorModel();
-        $this->attachmentCsVendorModel       = new \App\Models\AttachmentCsVendorModel();
+        $this->clearingHouseModel       = new \App\Models\ClearingHouseModel();
+        $this->attachmentClearingModel  = new \App\Models\AttachmentClearingModel();
+        $this->attachmentCsModel        = new \App\Models\AttachmentCsModel();
+        $this->UsersModel               = new \App\Models\UsersModel();
 
         // Preload any models, libraries, etc, here.
 
